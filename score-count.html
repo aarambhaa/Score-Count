@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Score Count </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .team-head {margin-left: 25%;}
+        button {text-align: center;}
+        #count {font-size: 22px;}
+        #count2 {font-size: 22px;}
+        .end {margin-left: 45%;}
+        #endline {margin-left: 46%; 
+        margin-top: 4%;}
+        .container {margin-top: 15%;
+        margin-left: 30%;}
+ </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-2">
+            <div contenteditable="true">
+             <p id="pl1"> Player 1 </p>
+            </div>
+            <p id="count"></p>
+            <button type="button" class="btn btn-success" onclick="clickFunc()"> Add Score</button>
+          </div>
+          <div class="col-sm-2"> <br> <br>
+            VS
+          </div>
+          <div class="col-sm-5">
+             <div contenteditable="true">
+              <p id="pl2"> Player 2 </p>
+             </div>
+            <p id="count2"></p>
+            <button type="button" class="btn btn-success" onclick="clickFunct()"> Add Score</button>
+          </div>
+        </div>
+      </div> <br>
+      <div> 
+          <button class="end btn btn-danger" type="button" onclick="endFunc()"> End match </button>
+      </div>
+      <p id="endline"></p>
+</body>
+<script>
+    var counter = document.getElementById("count").innerHTML = 0;
+   function clickFunc() {
+    counter++;
+    document.getElementById("count").innerHTML = counter;
+    }
+    var counter2 = document.getElementById("count2").innerHTML = 0;
+function clickFunct() {
+    counter2++;
+    document.getElementById("count2").innerHTML = counter2;
+}
+function endFunc() {
+    if (document.getElementById("count").innerHTML > document.getElementById("count2").innerHTML) {
+        document.getElementById("endline").innerHTML = document.getElementById("pl1").textContent + " is winner";
+    } else if (document.getElementById("count2").innerHTML > document.getElementById("count").innerHTML) {
+        document.getElementById("endline").innerHTML = "Player 2 wins";
+    } else {
+        document.getElementById("endline").innerHTML = "Its a draw";
+    }
+}
+</script>
+</html>
